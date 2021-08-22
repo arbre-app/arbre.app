@@ -1,0 +1,26 @@
+{
+  "name": "arbre.app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:static": "next build && next export && mv ./out/_next ./out/assets && find ./out -type f -exec sed -i 's/_next/assets/g' {} \\;"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "insee-deces-front": "git+ssh://git@github.com/arbre-app/insee-deces-front.git",
+    "next": "11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "next-transpile-modules": "^8.0.0",
+    "url-loader": "^4.1.1"
+  }
+}

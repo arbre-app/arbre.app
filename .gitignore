@@ -1,0 +1,11 @@
+/node_modules
+
+.idea
+*.iml
+
+/.next/
+/out/
+
+/build
+
+npm-debug.log*
