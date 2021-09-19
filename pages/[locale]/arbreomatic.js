@@ -1,13 +1,11 @@
-import { IntlProvider } from 'react-intl';
 import { DefaultLocaleRedirect } from '../../components';
+import { StaticRedirect } from '../../components/StaticRedirect';
 import { getAllLocaleSlugs, getLocale } from '../../i18n';
 
-export default function PageIndex({ noRedirect, locale }) {
+export default function PageArbreOMatic({ noRedirect, locale }) {
   return (
     <DefaultLocaleRedirect noRedirect={noRedirect} locale={locale} path="/">
-      <IntlProvider locale={locale} messages={{}}>
-        abc
-      </IntlProvider>
+      <StaticRedirect redirect path="/legacy/arbreomatic" />
     </DefaultLocaleRedirect>
   );
 }

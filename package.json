@@ -12,9 +12,10 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "insee-deces-front": "git+ssh://git@github.com/arbre-app/insee-deces-front.git",
-    "next": "11.1.0",
+    "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-intl": "^5.20.10"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",

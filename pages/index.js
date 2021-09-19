@@ -1,16 +1,8 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { defaultLocale } from '../i18n';
+import PageIndex from './[locale]';
 
-export default function PageHome() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const { pathname } = router;
-    if (pathname === '/') {
-      router.replace('/' + defaultLocale);
-    }
-  });
-
-  return null;
+export default function PageIndexDefault() {
+  return (
+    <PageIndex noRedirect locale={defaultLocale} />
+  );
 }
