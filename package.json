@@ -1,27 +1,34 @@
 {
   "name": "arbre.app",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "arbre.app",
+  "author": "Florian Cassayre",
+  "keywords": [
+    "genealogy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arbre-app/arbre.app.git"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "build:static": "next build && next export && mv ./out/_next ./out/assets && find ./out -type f -exec sed -i 's/_next/assets/g' {} \\;"
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "favicons": "node favicons.js"
   },
   "dependencies": {
-    "bootstrap": "^4.5.3",
-    "insee-deces-front": "git+ssh://git@github.com/arbre-app/insee-deces-front.git",
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "bootstrap": "^4.6.0",
+    "favicons": "^6.2.2",
+    "gatsby": "^4.1.0",
+    "gatsby-plugin-translate-urls": "^1.0.0-beta.7",
+    "insee-deces-front": "github:arbre-app/insee-deces-front",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.6.1",
+    "react-bootstrap-icons": "^1.6.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-intl": "^5.20.10"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^5.5.0",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0",
-    "next-transpile-modules": "^8.0.0",
-    "url-loader": "^4.1.1"
   }
 }

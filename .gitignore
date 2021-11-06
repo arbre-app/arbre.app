@@ -1,11 +1,6 @@
-/node_modules
+node_modules/
+.cache/
+public/
 
-.idea
+.idea/
 *.iml
-
-/.next/
-/out/
-
-/build
-
-npm-debug.log*
