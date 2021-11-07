@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run build-dependency
+      - run: npm run favicons
+      - run: npm run legacy
+      - run: npm run build
+      - name: Deploy arbre.app
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: public/
+          remote_path: arbre.app
+          remote_host: arbre.app
+          remote_user: github
+          remote_key: ${{ secrets.DEPLOY_KEY }}

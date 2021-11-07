@@ -1,67 +1,80 @@
 import { Link } from 'gatsby';
-import { Fragment } from 'react';
-import * as React from "react"
+import { TranslateUrlsContext } from 'gatsby-plugin-translate-urls';
+import { Fragment, useContext } from 'react';
+import * as React from 'react';
 import { Badge, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { Layout } from '../components';
 import logo from '../images/logo.svg';
 
 const IndexPage = () => {
+  const { locale, translateUrl } = useContext(TranslateUrlsContext);
 
-  const content = [
+  const contentPublished = [
     {
       url: '/insee',
-      title: 'Fichier des décès de l\'Insee',
-      subtitle: 'Décès survenus en France depuis 1970',
-      description: 'Un moteur de recherche ergonomique pour rechercher des informations sur un défunt parmi 25 millions de fiches.',
-      keywords: ['moteur de recherche', 'insee', 'archives', 'france']
+      id: 'insee',
+      keywords: ['search_engine', 'insee', 'archives', 'france'],
     },
     {
       url: '/arbreomatic',
-      title: 'Arbre-o-matic',
-      subtitle: 'Générateur d\'éventail généalogique',
-      description: 'Un outil permettant de concevoir à partir d\'un fichier Gedcom des infographies pour illustrer votre généalogie.',
-      keywords: ['gedcom', 'infographie', 'impression']
+      id: 'arbreomatic',
+      keywords: ['gedcom', 'infographics', 'print'],
     }
   ];
 
+  const contentWorkInProgress = [
+    {
+      url: 'https://mon.arbre.app',
+      id: 'monarbre',
+      keywords: ['gedcom', 'application',]
+    }
+  ];
+
+  const CardsContents = ({ data }) => (
+    <Row className="justify-content-center">
+      {data.map(({ url, id, keywords }, i) => (
+        <Col key={i} xs={12} md={6} xl={4} className="py-2">
+          <Link to={url.startsWith('/') ? translateUrl(url, locale) : url} className="text-reset text-decoration-none">
+            <Card className="card-highlight">
+              <Card.Body>
+                <Card.Title><FormattedMessage id={`page.home.apps.${id}.title`}/></Card.Title>
+                <Card.Subtitle className="mb-4 text-muted"><FormattedMessage id={`page.home.apps.${id}.subtitle`}/></Card.Subtitle>
+                <Card.Text>
+                  <FormattedMessage id={`page.home.apps.${id}.description`}/>
+                </Card.Text>
+                <div className="text-center">
+                  {/*<span className="text-muted d-block">(mots-clés)</span>*/}
+                  {keywords.map((keyword, i) => (
+                    <Fragment key={keyword}>
+                      <Badge variant="secondary"><FormattedMessage id={`page.home.keywords.${keyword}`}/></Badge>
+                      {i < keywords.length - 1 && ' '}
+                    </Fragment>
+                  ))}
+                </div>
+              </Card.Body>
+            </Card>
+          </Link>
+        </Col>
+      ))}
+    </Row>
+  );
+
   return (
-    <Layout>
-      <div className="text-center m-4">
-        <Link to="/">
-          <Image src={logo} style={{ width: '8em', maxWidth: '100%' }} />
-        </Link>
+    <Layout
+      title="page.home.title"
+      description="page.home.description"
+    >
+      <div className="text-center p-4">
         <Link to="/" className="text-reset text-decoration-none">
+          <Image src={logo} style={{ width: '8em', maxWidth: '100%' }} />
           <h1><span style={{ color: '#637b39' }}>arbre</span>.app</h1>
         </Link>
       </div>
       <Container className="mb-4">
-        <Row className="justify-content-center">
-          {content.map(({ url, title, subtitle, description, keywords }, i) => (
-            <Col key={i} xs={12} md={6} xl={4} className="py-2">
-              <Link to={url} className="text-reset text-decoration-none">
-                <Card className="card-highlight">
-                  <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Subtitle className="mb-4 text-muted">{subtitle}</Card.Subtitle>
-                    <Card.Text>
-                      {description}
-                    </Card.Text>
-                    <div className="text-center">
-                      {/*<span className="text-muted d-block">(mots-clés)</span>*/}
-                      {keywords.map((keyword, i) => (
-                        <Fragment key={keyword}>
-                          <Badge variant="secondary">{keyword}</Badge>
-                          {i < keywords.length - 1 && ' '}
-                        </Fragment>
-                      ))}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </Col>
-          ))}
-        </Row>
+        <CardsContents data={contentPublished} />
+        <h4 className="text-center mt-5"><FormattedMessage id="page.home.under_development" /></h4>
+        <CardsContents data={contentWorkInProgress} />
       </Container>
     </Layout>
   )

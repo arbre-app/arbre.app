@@ -1,4 +1,4 @@
-import {IntlProvider} from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import React from 'react';
 import messagesEn from './src/i18n/en.json';
 import messagesFr from './src/i18n/fr.json';
@@ -8,8 +8,8 @@ const messages = {
   fr: messagesFr,
 }
 
-export const wrapPageElement = ({element, props}) => {
-  const {locale: currentLocale} = props.pageContext;
+export const wrapPageElement = ({ element, props }) => {
+  const { locale: currentLocale } = props.pageContext;
   const fallbackLocale = 'fr';
 
   return (
@@ -20,4 +20,4 @@ export const wrapPageElement = ({element, props}) => {
       {element}
     </IntlProvider>
   )
-}
+};

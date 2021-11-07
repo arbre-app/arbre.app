@@ -17,3 +17,11 @@ body.theme-light {
         transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
     }
 }
+
+.icon {
+    /* Fixes icon alignment */
+    width: 1em;
+    height: 1em;
+    vertical-align: -.15em;
+    display: inline-block;
+}

@@ -1,14 +1,12 @@
 import { TranslateUrlsContext } from 'gatsby-plugin-translate-urls';
-import { useContext } from 'react';
-import * as React from 'react';
-import { Layout } from '../components';
+import { useContext, useEffect } from 'react';
 
 export default function PageInsee() {
-  const { locale, originalUrl, translateUrl } = useContext(TranslateUrlsContext);
+  const { locale, translateUrl } = useContext(TranslateUrlsContext);
 
-  return (
-    <Layout>
+  useEffect(() => {
+    window.location.replace(translateUrl('/legacy/arbreomatic', locale));
+  }, [locale, translateUrl]);
 
-    </Layout>
-  )
+  return null;
 }

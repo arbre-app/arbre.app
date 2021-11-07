@@ -8,26 +8,29 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/arbre-app/arbre.app.git"
+    "url": "git@github.com:arbre-app/arbre.app.git"
   },
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
+    "build-dependency": "cd node_modules/insee-deces-front && npm i && npm run build:library",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "favicons": "node favicons.js"
+    "favicons": "node favicons.js",
+    "legacy": "unzip legacy.zip -d static/"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
     "favicons": "^6.2.2",
     "gatsby": "^4.1.0",
     "gatsby-plugin-translate-urls": "^1.0.0-beta.7",
-    "insee-deces-front": "github:arbre-app/insee-deces-front",
+    "insee-deces-front": "git+https://git@github.com/arbre-app/insee-deces-front.git",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-icons": "^1.6.1",
     "react-dom": "^17.0.1",
+    "react-flags-select": "^2.1.2",
     "react-helmet": "^6.1.0",
     "react-intl": "^5.20.10"
   }

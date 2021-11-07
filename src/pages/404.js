@@ -1,25 +1,29 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Container } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import { Layout } from '../components';
 
 const PageNotFound = () => {
   return (
-    <Layout>
+    <Layout
+      title="page.not_found.title"
+      description="page.not_found.title"
+    >
       <Container className="pt-4 text-center">
-        <h1 className="mb-4">Erreur 404</h1>
+        <h1 className="mb-4"><FormattedMessage id="page.not_found.error" /></h1>
         <p>
-          La page n'a pas été trouvée.
+          <FormattedMessage id="page.not_found.explanation" />
         </p>
         <p>
-          Si vous pensez qu'il s'agit d'une erreur, merci de nous écrire à : <span>contact [arobase] arbre [point] app</span>
+          <FormattedMessage id="page.not_found.contact" values={{ contact: <span>contact [@] arbre [.] app</span> }} />
         </p>
         <p>
-          <Link to="/">Retourner à l'accueil</Link>
+          <Link to="/"><FormattedMessage id="page.not_found.back_to_home" /></Link>
         </p>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default PageNotFound;
