@@ -16,8 +16,8 @@ export function Layout({ title, description, children }) {
       </Header>
 
       <Container>
-        <Container className="position-absolute text-right ml-n3 p-0">
-          <SelectLocale className="mt-2 mr-2" />
+        <Container className="p-0 m-0" style={{ height: 0 }}>
+          <SelectLocale className="text-right pt-2" />
         </Container>
       </Container>
 
@@ -25,7 +25,7 @@ export function Layout({ title, description, children }) {
         {children}
       </main>
 
-      <footer>
+      <footer className="mb-2">
         <Container className="text-center">
           <hr />
           <small className="d-block mb-1"><FormattedMessage id="footer.free_software" values={{ name: <strong>arbre.app</strong> }} /></small>

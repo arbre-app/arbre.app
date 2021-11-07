@@ -10,11 +10,17 @@ body.theme-light {
     transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
+.card-highlight:hover {
+    box-shadow: 0 0 24px #d7d7d7;
+    transform: scale(1.05);
+    transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
 @media (hover: hover) {
     .card-highlight:hover {
-        box-shadow: 0 0 24px #d7d7d7;
-        transform: scale(1.05);
-        transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+        box-shadow: inherit;
+        transform: inherit;
+        transition: inherit;
     }
 }
 

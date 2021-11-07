@@ -4,17 +4,21 @@ import * as React from 'react';
 import { App } from 'insee-deces-front';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'insee-deces-front/build/index.css';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+import { ArrowLeft } from 'react-bootstrap-icons';
 import { Header, SelectLocale } from '../components';
 
 export default function PageInsee() {
   const { locale, originalUrl, translateUrl } = useContext(TranslateUrlsContext);
 
   const headerCmp = () => (
-    <Container>
-      <Container className="position-absolute text-right ml-n3">
-        <SelectLocale className="mt-2 mr-2" />
-      </Container>
+    <Container className="p-0 m-0 justify-content-between d-flex w-100" style={{ height: 0 }}>
+      <div className="d-inline pt-2">
+        <Button variant="outline-secondary" href={translateUrl('/', locale)}>
+          <ArrowLeft className="icon" />
+        </Button>
+      </div>
+      <SelectLocale className="d-inline pt-2" />
     </Container>
   );
 

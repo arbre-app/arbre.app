@@ -28,6 +28,8 @@ export function Header({ title, description, children }) {
       <meta name="twitter:title" content={actualTitle}/>
       <meta name="twitter:description" content={actualDescription}/>
 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
       {/* Begin icons */}
 
       <link rel="shortcut icon" href="/favicon.ico" />

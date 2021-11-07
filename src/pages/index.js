@@ -3,6 +3,7 @@ import { TranslateUrlsContext } from 'gatsby-plugin-translate-urls';
 import { Fragment, useContext } from 'react';
 import * as React from 'react';
 import { Badge, Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { AppIndicator, Book, CodeSlash, Diagram2 } from 'react-bootstrap-icons';
 import { FormattedMessage } from 'react-intl';
 import { Layout } from '../components';
 import logo from '../images/logo.svg';
@@ -14,11 +15,13 @@ const IndexPage = () => {
     {
       url: '/insee',
       id: 'insee',
+      icon: Book,
       keywords: ['search_engine', 'insee', 'archives', 'france'],
     },
     {
       url: '/arbreomatic',
       id: 'arbreomatic',
+      icon: Diagram2,
       keywords: ['gedcom', 'infographics', 'print'],
     }
   ];
@@ -27,18 +30,22 @@ const IndexPage = () => {
     {
       url: 'https://mon.arbre.app',
       id: 'monarbre',
+      icon: AppIndicator,
       keywords: ['gedcom', 'application',]
     }
   ];
 
   const CardsContents = ({ data }) => (
     <Row className="justify-content-center">
-      {data.map(({ url, id, keywords }, i) => (
+      {data.map(({ url, id, icon: Icon, keywords }, i) => (
         <Col key={i} xs={12} md={6} xl={4} className="py-2">
           <Link to={url.startsWith('/') ? translateUrl(url, locale) : url} className="text-reset text-decoration-none">
             <Card className="card-highlight">
               <Card.Body>
-                <Card.Title><FormattedMessage id={`page.home.apps.${id}.title`}/></Card.Title>
+                <Card.Title>
+                  <Icon className="icon mr-2" />
+                  <FormattedMessage id={`page.home.apps.${id}.title`}/>
+                </Card.Title>
                 <Card.Subtitle className="mb-4 text-muted"><FormattedMessage id={`page.home.apps.${id}.subtitle`}/></Card.Subtitle>
                 <Card.Text>
                   <FormattedMessage id={`page.home.apps.${id}.description`}/>
@@ -73,7 +80,10 @@ const IndexPage = () => {
       </div>
       <Container className="mb-4">
         <CardsContents data={contentPublished} />
-        <h4 className="text-center mt-5"><FormattedMessage id="page.home.under_development" /></h4>
+        <h4 className="text-center mt-5">
+          <CodeSlash className="icon mr-3" />
+          <FormattedMessage id="page.home.under_development" />
+        </h4>
         <CardsContents data={contentWorkInProgress} />
       </Container>
     </Layout>
