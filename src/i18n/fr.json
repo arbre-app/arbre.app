@@ -1,6 +1,9 @@
 {
   "common.language": "Langue",
+  "common.alt_logo": "Logo",
+  "common.back_home": "Retour à l'accueil",
   "footer.free_software": "{name} est un logiciel libre",
+  "footer.github": "GitHub",
   "footer.version": "Version {version}",
   "page.home.title": "Outils généalogiques libres",
   "page.home.description": "Des outils informatiques libres conçus pour et par des généalogistes.",

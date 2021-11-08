@@ -6,15 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'insee-deces-front/build/index.css';
 import { Button, Container } from 'react-bootstrap';
 import { ArrowLeft } from 'react-bootstrap-icons';
+import { useIntl } from 'react-intl';
 import { Header, SelectLocale } from '../components';
 
 export default function PageInsee() {
+  const intl = useIntl();
   const { locale, originalUrl, translateUrl } = useContext(TranslateUrlsContext);
 
   const headerCmp = () => (
     <Container className="p-0 m-0 justify-content-between d-flex w-100" style={{ height: 0 }}>
       <div className="d-inline pt-2">
-        <Button variant="outline-secondary" href={translateUrl('/', locale)}>
+        <Button href={translateUrl('/', locale)} variant="outline-secondary" aria-label={intl.formatMessage({ id: 'common.back_home' })}>
           <ArrowLeft className="icon" />
         </Button>
       </div>

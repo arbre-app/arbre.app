@@ -4,7 +4,7 @@ module.exports = {
     title: "arbre.app",
   },
   plugins: [
-    'gatsby-plugin-remove-trailing-slashes',
+    "gatsby-plugin-remove-trailing-slashes",
     {
       resolve: "gatsby-plugin-translate-urls",
       options: {
@@ -15,6 +15,7 @@ module.exports = {
         defaultLocale: "fr",
       },
     },
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
       options: {

@@ -1,6 +1,6 @@
 {
   "name": "arbre.app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "arbre.app",
   "author": "Florian Cassayre",
   "keywords": [
@@ -26,6 +26,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "gatsby": "^4.1.0",
+    "gatsby-plugin-react-helmet": "^5.1.0",
     "insee-deces-front": "git+https://git@github.com/arbre-app/insee-deces-front.git",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.1",

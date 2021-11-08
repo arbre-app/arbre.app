@@ -14,6 +14,8 @@ export function Header({ title, description, children }) {
 
   return (
     <Helmet>
+      <html lang={locale} />
+
       <title>{actualTitle}</title>
 
       <meta name="language" content={locale}/>
@@ -83,8 +85,6 @@ export function Header({ title, description, children }) {
       <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json" />
 
       {/* End icons */}
-
-      <body lang={locale} />
 
       {children}
     </Helmet>
