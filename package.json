@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git@github.com:arbre-app/arbre.app.git"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -28,13 +31,13 @@
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-icons": "^1.6.1",
     "react-dom": "^17.0.1",
-    "react-flags-select": "^2.1.2",
     "react-helmet": "^6.1.0",
     "react-intl": "^5.20.10"
   },
   "devDependencies": {
     "favicons": "^6.2.2",
     "gatsby-plugin-remove-trailing-slashes": "^4.1.0",
-    "gatsby-plugin-translate-urls": "^1.0.0-beta.7"
+    "gatsby-plugin-translate-urls": "^1.0.0-beta.7",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25"
   }
 }
