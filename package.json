@@ -21,7 +21,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "favicons": "node favicons.js",
-    "legacy": "unzip legacy.zip -d static/"
+    "legacy": "unzip legacy.zip -d static/",
+    "test": "cypress open"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -36,9 +37,11 @@
     "react-intl": "^5.20.10"
   },
   "devDependencies": {
+    "cypress": "^9.0.0",
     "favicons": "^6.2.2",
     "gatsby-plugin-remove-trailing-slashes": "^4.1.0",
     "gatsby-plugin-translate-urls": "^1.0.0-beta.7",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25"
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25",
+    "start-server-and-test": "^1.14.0"
   }
 }
