@@ -6,3 +6,4 @@ public/
 *.iml
 
 cypress/videos
+cypress/screenshots

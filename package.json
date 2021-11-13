@@ -22,7 +22,8 @@
     "clean": "gatsby clean",
     "favicons": "node favicons.js",
     "legacy": "unzip legacy.zip -d static/",
-    "test": "cypress open"
+    "test:develop": "cypress open",
+    "test:build": "start-server-and-test 'serve public -p 8000' http://localhost:8000 'cypress run'"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -42,6 +43,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^4.1.0",
     "gatsby-plugin-translate-urls": "^1.0.0-beta.7",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25",
+    "serve": "^13.0.2",
     "start-server-and-test": "^1.14.0"
   }
 }

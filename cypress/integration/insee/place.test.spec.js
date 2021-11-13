@@ -1,10 +1,7 @@
-describe('Insee', () => {
+describe('Place', () => {
 
   beforeEach(() => {
-    cy.visit('/insee');
-
-    // Aliases
-    cy.get('button').contains('Lieu').as('placeButton');
+    cy.insee();
   });
 
   it('Selecting a place should automatically set the autocompletion value; clearing it should remove that value', () => {

@@ -1,8 +1,8 @@
-name: Deploy
+name: CI
 
 on:
   push:
-    branches:
+    branches-ignore:
       - master
 
 jobs:
@@ -19,12 +19,3 @@ jobs:
       - run: npm run legacy
       - run: npm run build
       - run: npm run test:build
-      - name: Deploy arbre.app
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr --delete
-          path: public/
-          remote_path: arbre.app
-          remote_host: arbre.app
-          remote_user: github
-          remote_key: ${{ secrets.DEPLOY_KEY }}
