@@ -1,6 +1,6 @@
 describe('Permalink', () => {
 
-  /*it('Regression: permalink form state bug', () => {
+  it('Regression: permalink form state bug', () => {
     cy.insee('#s=PETIT&n=Jean');
 
     cy.contains('Jean-Marie');
@@ -11,7 +11,7 @@ describe('Permalink', () => {
     cy.get('body').click(0, 0);
 
     cy.get('@surnameInput').should('have.value', '');
-  });*/
+  });
 
   it('Permalink should restore exactly the current search query', () => {
     cy.insee();

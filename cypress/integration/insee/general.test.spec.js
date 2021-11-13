@@ -4,10 +4,9 @@ describe('General', () => {
     cy.insee();
   });
 
-  // FIXME
-  /*it('Surname input should be initially focused', () => {
+  it('Surname input should be initially focused', () => {
     cy.get('@surnameInput').should('have.focus');
-  });*/
+  });
 
   it('Simple search yields results', () => {
     cy.get('@surnameInput').type('PETIT');
