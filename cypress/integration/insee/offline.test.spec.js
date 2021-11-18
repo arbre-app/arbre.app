@@ -58,6 +58,13 @@ describe('Offline', () => {
 
     cy.contains('La connexion au serveur n\'a pas pu être établie');
 
+    cy.get('.alert-danger > button.close').click();
+    cy.get('body').should('not.contain', 'La connexion au serveur n\'a pas pu être établie');
+
+    cy.get('@submitButton').click();
+
+    cy.contains('La connexion au serveur n\'a pas pu être établie');
+
     online();
 
     cy.get('@submitButton').click();
