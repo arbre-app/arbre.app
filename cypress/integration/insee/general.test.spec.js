@@ -64,4 +64,50 @@ describe('General', () => {
     cy.get('@givenNameInput').should('have.value', '');
   });
 
+  it('Regression: dates should be displayed the same way, regardless the timezone of the browser', () => {
+    const searchAndCheckDates = () => {
+      cy.reload();
+
+      cy.get('@surnameInput').type('PETIT');
+      cy.get('@givenNameInput').type('Marie Anne');
+      cy.get('@submitButton').click();
+
+      cy.contains('06/05/1960');
+      cy.contains('09/08/1985');
+
+      cy.get('body').should('not.contain', '04/05/1960');
+      cy.get('body').should('not.contain', '07/05/1960');
+      cy.get('body').should('not.contain', '08/08/1985');
+      cy.get('body').should('not.contain', '10/08/1985');
+    };
+
+    const setTimezone = tz =>
+      Cypress.automation('remote:debugger:protocol', {
+        command: 'Emulation.setTimezoneOverride',
+        params: {
+          timezoneId: tz,
+        },
+      }).then(() => {
+        const { timeZone } = new Intl.DateTimeFormat().resolvedOptions();
+        if(timeZone !== tz) {
+          console.log(`Warning: ${timeZone} != ${tz}, cannot perform timezone tests correctly`);
+        }
+      });
+
+    setTimezone('US/Pacific');
+    Cypress.automation('remote:debugger:protocol', {
+      command: 'Emulation.setTimezoneOverride',
+      params: {
+        timezoneId: 'US/Pacific',
+      },
+    });
+    searchAndCheckDates();
+
+    setTimezone('Asia/Tokyo');
+    searchAndCheckDates();
+
+    setTimezone('');
+    searchAndCheckDates();
+  });
+
 });
