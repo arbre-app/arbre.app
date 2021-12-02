@@ -13,7 +13,7 @@ export function SelectLocale({ ...other }) {
   const { locale: currentLocale, originalUrl, translateUrl } = useContext(TranslateUrlsContext);
 
   return (
-    <Dropdown {...other}>
+    <Dropdown onClick={(e) => e.stopPropagation()} {...other}>
       <Dropdown.Toggle variant="outline-info" id="language" aria-label={intl.formatMessage({ id: 'common.language' })}>
         <Globe2 className="icon mr-1" />
       </Dropdown.Toggle>

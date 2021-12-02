@@ -8,6 +8,7 @@ import { Button, Container } from 'react-bootstrap';
 import { ArrowLeft } from 'react-bootstrap-icons';
 import { useIntl } from 'react-intl';
 import { Header, SelectLocale } from '../components';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 export default function PageInsee() {
   const intl = useIntl();
@@ -34,12 +35,14 @@ export default function PageInsee() {
   );
 
   return (
-    <App
-      locale={locale}
-      setLocale={newLocale => window.location.href = translateUrl(originalUrl, newLocale)}
-      legacyUrl={translateUrl('/legacy/insee', locale)}
-      headerCmp={headerCmp}
-      helmetCmp={HelmetCmp}
-    />
+    <ErrorBoundary>
+      <App
+        locale={locale}
+        setLocale={newLocale => window.location.href = translateUrl(originalUrl, newLocale)}
+        legacyUrl={translateUrl('/legacy/insee', locale)}
+        headerCmp={headerCmp}
+        helmetCmp={HelmetCmp}
+      />
+    </ErrorBoundary>
   )
 }

@@ -30,6 +30,8 @@
   "page.not_found.title": "Page non trouvée",
   "page.not_found.error": "Erreur 404",
   "page.not_found.explanation": "La page n'a pas été trouvée.",
-  "page.not_found.contact": "Si vous pensez qu'il s'agit d'une erreur, merci de nous écrire à : {contact}",
-  "page.not_found.back_to_home": "Retourner à l'accueil"
+  "page.not_found.contact": "Si vous pensez qu'il s'agit d'une erreur, merci de nous écrire à : {contact}",
+  "page.not_found.back_to_home": "Retourner à l'accueil",
+  "page.error.title": "Une erreur est survenue",
+  "page.error.description": "Malheureusement l'interface a planté. Merci de nous signaler le problème en envoyant le code ci-dessous à l'adresse {contact} :"
 }

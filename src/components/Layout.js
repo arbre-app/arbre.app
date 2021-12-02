@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import { Container } from 'react-bootstrap';
 import { Github } from 'react-bootstrap-icons';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { ErrorBoundary } from './ErrorBoundary';
 import { Header } from './Header';
 import { version } from '../../package.json';
 import { SelectLocale } from './SelectLocale';
@@ -11,7 +12,7 @@ export function Layout({ title, description, children }) {
   const intl = useIntl();
 
   return (
-    <>
+    <ErrorBoundary>
       <Header title={title} description={description}>
         <body className="theme-light" />
       </Header>
@@ -36,6 +37,6 @@ export function Layout({ title, description, children }) {
           <small className="text-muted d-block"><FormattedMessage id="footer.version" values={{ version }}/></small>
         </Container>
       </footer>
-    </>
+    </ErrorBoundary>
   );
 }

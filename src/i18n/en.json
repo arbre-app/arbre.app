@@ -31,5 +31,7 @@
   "page.not_found.error": "Error 404",
   "page.not_found.explanation": "The page could not be found.",
   "page.not_found.contact": "If you believe this to be an error, please write us at: {contact}",
-  "page.not_found.back_to_home": "Go back to the homepage"
+  "page.not_found.back_to_home": "Go back to the homepage",
+  "page.error.title": "An error occurred",
+  "page.error.description": "Unfortunately the interface crashed. Please report us the problem by sending the following code to {contact}:"
 }

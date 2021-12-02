@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { Layout } from '../components';
+import { EMAIL_CONTACT_STRING } from '../config';
 
 const PageNotFound = () => {
   return (
@@ -16,7 +17,7 @@ const PageNotFound = () => {
           <FormattedMessage id="page.not_found.explanation" />
         </p>
         <p>
-          <FormattedMessage id="page.not_found.contact" values={{ contact: <span>contact [@] arbre [.] app</span> }} />
+          <FormattedMessage id="page.not_found.contact" values={{ contact: <span>{EMAIL_CONTACT_STRING}</span> }} />
         </p>
         <p>
           <Link to="/"><FormattedMessage id="page.not_found.back_to_home" /></Link>
