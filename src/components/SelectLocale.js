@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { TranslateUrlsContext } from 'gatsby-plugin-translate-urls';
 import React, { useContext } from 'react';
 import { Dropdown } from 'react-bootstrap';
@@ -24,7 +25,8 @@ export function SelectLocale({ ...other }) {
         </Dropdown.Header>
         {AVAILABLE_LANGUAGES_SELECT.map(({ locale, name, iconComponent: IconComponent }) => (
           <Dropdown.Item
-            href={translateUrl(originalUrl, locale)}
+            as={Link}
+            to={translateUrl(originalUrl, locale)}
             key={locale}
             active={locale === currentLocale}
           >

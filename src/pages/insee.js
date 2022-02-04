@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { TranslateUrlsContext } from 'gatsby-plugin-translate-urls';
 import { useContext } from 'react';
 import * as React from 'react';
@@ -12,12 +13,12 @@ import { ErrorBoundary } from '../components/ErrorBoundary';
 
 export default function PageInsee() {
   const intl = useIntl();
-  const { locale, originalUrl, translateUrl } = useContext(TranslateUrlsContext);
+  const { locale, translateUrl } = useContext(TranslateUrlsContext);
 
   const headerCmp = () => (
     <Container className="p-0 m-0 justify-content-between d-flex w-100" style={{ height: 0 }}>
       <div className="d-inline pt-2">
-        <Button href={translateUrl('/', locale)} variant="outline-secondary" aria-label={intl.formatMessage({ id: 'common.back_home' })}>
+        <Button as={Link} to={translateUrl('/', locale)} variant="outline-secondary" aria-label={intl.formatMessage({ id: 'common.back_home' })}>
           <ArrowLeft className="icon" />
         </Button>
       </div>
@@ -38,7 +39,6 @@ export default function PageInsee() {
     <ErrorBoundary>
       <App
         locale={locale}
-        setLocale={newLocale => window.location.href = translateUrl(originalUrl, newLocale)}
         legacyUrl={translateUrl('/legacy/insee', locale)}
         headerCmp={headerCmp}
         helmetCmp={HelmetCmp}

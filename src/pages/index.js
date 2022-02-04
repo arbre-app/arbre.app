@@ -78,7 +78,7 @@ const IndexPage = () => {
       description="page.home.description"
     >
       <div className="text-center p-4">
-        <Link to="/" className="text-reset text-decoration-none">
+        <Link to={translateUrl('/', locale)} className="text-reset text-decoration-none">
           <Image src={logo} alt={intl.formatMessage({ id: 'common.alt_logo' })} style={{ width: '8em', maxWidth: '100%' }} />
           <h1><span style={{ color: '#637b39' }}>arbre</span>.app</h1>
         </Link>
