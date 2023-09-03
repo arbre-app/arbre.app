@@ -6,7 +6,7 @@ describe('Navigation', () => {
 
   function checkOnInsee() {
     cy.contains('Rechercher');
-    cy.contains('La base contient');
+    cy.contains('La base recense');
   }
 
   it('Load homepage, navigate to Insee and back', () => {
